@@ -33,7 +33,7 @@ Abra o prompt gitbash, entre na estrutura de sua workspace, apague as pastas exi
 	git clone git@gitlab.produbanbr.corp:automacao/selenium-utils.git
 ```
 
-## Instalação do LeanFT 14.01
+## Configuração do WebDriver
 
 Drivers recomendados:
 
