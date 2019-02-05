@@ -1,0 +1,7 @@
+Versão 1.2.0
+- Remoção da classe TesteBaseWebDriver.
+- Criação da interface ITesteBaseTestNG.
+
+Versão 1.1.0
+- Inclusão das bibliotecas básicas do projeto.
+- Adequaçção das classes TesteBase, TesteBaseWebDriver e TelaBase;
