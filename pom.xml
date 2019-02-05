@@ -11,6 +11,16 @@
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
+    <distributionManagement>
+        <repository>
+            <id>santander-release-repo</id>
+            <url>http://artifactory.produbanbr.corp/artifactory/maven-releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>santander-snapshots-repo</id>
+            <url>http://artifactory.produbanbr.corp/artifactory/maven-snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
 	<dependencies>
 		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
