@@ -78,8 +78,8 @@ public class ElementoWebUtils {
 	 */
 	public WebElement elementoWebAchaElementoClicavel(By by) {
 		WebElement elemento = new FluentWait<>(this.getDriver())
-				.withTimeout(Duration.ofSeconds(TempoTimeouts.TEMPOWAIT))
-				.pollingEvery(Duration.ofSeconds(TempoTimeouts.TEMPOPOLLING))
+				.withTimeout(Duration.ofSeconds(TempoTimeouts.TEMPO_WAIT))
+				.pollingEvery(Duration.ofSeconds(TempoTimeouts.TEMPO_POLLING))
 				.ignoring(StaleElementReferenceException.class).until(ExpectedConditions.elementToBeClickable(by));
 
 		return elemento;
@@ -97,8 +97,8 @@ public class ElementoWebUtils {
 	 */
 	public WebElement elementoWebAchaElementoVisivel(By by) {
 		WebElement elemento = new FluentWait<>(this.getDriver())
-				.withTimeout(Duration.ofSeconds(TempoTimeouts.TEMPOWAIT))
-				.pollingEvery(Duration.ofSeconds(TempoTimeouts.TEMPOPOLLING))
+				.withTimeout(Duration.ofSeconds(TempoTimeouts.TEMPO_WAIT))
+				.pollingEvery(Duration.ofSeconds(TempoTimeouts.TEMPO_POLLING))
 				.ignoring(StaleElementReferenceException.class)
 				.until(ExpectedConditions.visibilityOfElementLocated(by));
 
@@ -117,8 +117,8 @@ public class ElementoWebUtils {
 	 */
 	public List<WebElement> elementoWebAchaElementosWait(By by) {
 		List<WebElement> listaElementos = new FluentWait<>(this.getDriver())
-				.withTimeout(Duration.ofSeconds(TempoTimeouts.TEMPOWAIT))
-				.pollingEvery(Duration.ofSeconds(TempoTimeouts.TEMPOWAIT))
+				.withTimeout(Duration.ofSeconds(TempoTimeouts.TEMPO_WAIT))
+				.pollingEvery(Duration.ofSeconds(TempoTimeouts.TEMPO_WAIT))
 				.ignoring(StaleElementReferenceException.class)
 				.until(ExpectedConditions.presenceOfAllElementsLocatedBy(by));
 
@@ -189,18 +189,18 @@ public class ElementoWebUtils {
 
 	public void elementoWebSelecionaListaPorClique(By by, String texto) {
 		this.elementoWebClica(by);
-		this.sleep(TempoTimeouts.TEMPOPADRAOTELA);
+		this.sleep(TempoTimeouts.TEMPO_PADRAO_TELA);
 		By elementoLista = ByUtils.encontraByTextoContains(ByUtils.LI, texto);
 		this.elementoWebMoveParaOElemento(elementoLista);
-		this.sleep(TempoTimeouts.TEMPOPADRAOTELA);
+		this.sleep(TempoTimeouts.TEMPO_PADRAO_TELA);
 		this.elementoWebClica(elementoLista);
 	}
 
 	public void elementoWebSelecionaListaPorKeys(By by, String texto) {
 		this.elementoWebInsereTexto(by, texto);
-		this.sleep(TempoTimeouts.TEMPOPADRAOTELA);
+		this.sleep(TempoTimeouts.TEMPO_PADRAO_TELA);
 		this.elementoWebInsereTexto(by, Keys.DOWN);
-		this.sleep(TempoTimeouts.TEMPOPADRAOTELA);
+		this.sleep(TempoTimeouts.TEMPO_PADRAO_TELA);
 		this.elementoWebInsereTexto(by, Keys.ENTER);
 
 	}
@@ -213,7 +213,7 @@ public class ElementoWebUtils {
 	 * @param value o texto a ser inserido dentro do campo de texto
 	 */
 	public void elementoWebInsereTexto(By by, String value) {
-		this.sleep(TempoTimeouts.TEMPOPADRAOTELA);
+		this.sleep(TempoTimeouts.TEMPO_PADRAO_TELA);
 		this.elementoWebAguardaVisibilidade(by);
 		this.elementoWebAchaElementoClicavel(by).sendKeys(value);
 	}
@@ -269,7 +269,7 @@ public class ElementoWebUtils {
 	 */
 	public By elementoWebBuscaPorTexto(String texto) {
 		String busca = "(//*[text()='%1$s'])";
-		this.sleep(TempoTimeouts.TEMPOLONGO);
+		this.sleep(TempoTimeouts.TEMPO_LONGO);
 		By elemento = By.xpath(String.format(busca, texto));
 		return elemento;
 	}
@@ -280,7 +280,7 @@ public class ElementoWebUtils {
 	 * @param by o identificador By do elemento a ser selecionado
 	 */
 	public void elementoWebLimpa(By by) {
-		this.sleep(TempoTimeouts.TEMPOPADRAOTELA);
+		this.sleep(TempoTimeouts.TEMPO_PADRAO_TELA);
 //		this.elementoWebAchaElementoClicavel(by).clear();
 		this.elementoWebAchaElementoClicavel(by).sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 	}
@@ -491,8 +491,8 @@ public class ElementoWebUtils {
 	 * @param by objeto {@link By} mapeado.
 	 */
 	public void elementoWebAguardaVisibilidade(By by) {
-		new FluentWait<>(this.getDriver()).withTimeout(Duration.ofSeconds(TempoTimeouts.TEMPOWAIT))
-				.pollingEvery(Duration.ofSeconds(TempoTimeouts.TEMPOPOLLING))
+		new FluentWait<>(this.getDriver()).withTimeout(Duration.ofSeconds(TempoTimeouts.TEMPO_WAIT))
+				.pollingEvery(Duration.ofSeconds(TempoTimeouts.TEMPO_POLLING))
 				.ignoring(StaleElementReferenceException.class)
 				.until(ExpectedConditions.visibilityOfElementLocated(by));
 	}
@@ -515,7 +515,7 @@ public class ElementoWebUtils {
 	 * @param arquivo objeto {@link File} a ser enviado.
 	 */
 	public void elementoWebEnviaArquivoUpload(By by, File arquivo) {
-		this.sleep(TempoTimeouts.TEMPOCURTO);
+		this.sleep(TempoTimeouts.TEMPO_CURTO);
 		try {
 			this.getDriver().findElement(by).sendKeys(arquivo.getCanonicalPath());
 		} catch (IOException e) {
@@ -532,7 +532,7 @@ public class ElementoWebUtils {
 	 * @param caminho {@link String} com o caminho do arquivo.
 	 */
 	public void elementoWebEnviaArquivoUpload(By by, String caminho) {
-		this.sleep(TempoTimeouts.TEMPOCURTO);
+		this.sleep(TempoTimeouts.TEMPO_CURTO);
 		File arquivo = new File(caminho);
 		this.elementoWebEnviaArquivoUpload(by, arquivo);
 	}
