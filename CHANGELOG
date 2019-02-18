@@ -1,3 +1,6 @@
+Versão 1.2.1
+- Desmembramento de constantes na classes PadrãoDeTextos: foram criadas constantes do te long, para utilização no método sleep().
+
 Versão 1.2.0
 - Remoção da classe TesteBaseWebDriver.
 - Criação da interface ITesteBaseTestNG.
