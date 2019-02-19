@@ -7,6 +7,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -77,9 +78,9 @@ public class ElementoWebUtils {
 	 * @return WebElement encontrado na página através do By
 	 */
 	public WebElement elementoWebAchaElementoClicavel(By by) {
-		WebElement elemento = new FluentWait<>(this.getDriver())
-				.withTimeout(Duration.ofSeconds(TempoTimeouts.TEMPO_WAIT))
-				.pollingEvery(Duration.ofSeconds(TempoTimeouts.TEMPO_POLLING))
+		WebElement elemento = (new WebDriverWait(this.getDriver(), TempoTimeouts.TEMPO_WAIT))
+				.withTimeout(TempoTimeouts.TEMPO_WAIT, TimeUnit.SECONDS)
+				.pollingEvery(TempoTimeouts.TEMPO_POLLING, TimeUnit.SECONDS)
 				.ignoring(StaleElementReferenceException.class).until(ExpectedConditions.elementToBeClickable(by));
 
 		return elemento;
