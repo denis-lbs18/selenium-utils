@@ -492,10 +492,11 @@ public class ElementoWebUtils {
 	 * @param by objeto {@link By} mapeado.
 	 */
 	public void elementoWebAguardaVisibilidade(By by) {
-		new FluentWait<>(this.getDriver()).withTimeout(Duration.ofSeconds(TempoTimeouts.TEMPO_WAIT))
-				.pollingEvery(Duration.ofSeconds(TempoTimeouts.TEMPO_POLLING))
-				.ignoring(StaleElementReferenceException.class)
-				.until(ExpectedConditions.visibilityOfElementLocated(by));
+		(new WebDriverWait(this.getDriver(), TempoTimeouts.TEMPO_WAIT))
+				.withTimeout(TempoTimeouts.TEMPO_WAIT, TimeUnit.SECONDS)
+				.pollingEvery(TempoTimeouts.TEMPO_POLLING, TimeUnit.SECONDS)
+				.ignoring(StaleElementReferenceException.class).until(ExpectedConditions.elementToBeClickable(by));
+
 	}
 
 	/**
@@ -541,10 +542,5 @@ public class ElementoWebUtils {
 	public boolean elementoWebEstaSelecionado(By by) {
 		boolean retorno = this.elementoWebAchaElementoVisivel(by).isSelected();
 		return retorno;
-	}
-
-	public void elementoWebSelecionaListaPorCliqueActions(By inputProfissao, String profissao) {
-		// TODO Auto-generated method stub
-
 	}
 }

@@ -1,3 +1,9 @@
+Versão 1.2.3
+- Inclusão do método encontraByName(String elemento, String nome) e encontraByName(String elemento, String nome, int index) na classe ByUtils.
+- Remoção de método não construído na classe ElementoWebUtils
+- Correção de bug na classe ElementoWebUtils no método aguardaVisibilidade();
+- Remoção de método que matava processo do Chrome no Windows.
+
 Versão 1.2.2
 - Reversão do método FluentWait<>, voltando a utilizar um WebDriverWait, devido problemas de compatibilidade.
 

@@ -1,17 +1,14 @@
 package br.com.rsinet.selenium_utils.modelos;
 
-import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import br.com.rsinet.selenium_utils.utils.constants.PadraoDeTextos;
 import br.com.rsinet.selenium_utils.utils.selenium.ElementoWebUtils;
 
 /**
@@ -100,13 +97,6 @@ public abstract class TelaBase {
 		} catch (Exception e) {
 			System.out.println("Erro ao chamar o método quit(): " + e.toString());
 		}
-
-		if ((System.getProperty("os.name").startsWith("Windows")) & (this.driver instanceof ChromeDriver))
-			try {
-				Runtime.getRuntime().exec(PadraoDeTextos.COMANDO_MATA_PROCESSO_CHROMEDRIVER);
-			} catch (IOException e) {
-				System.out.println("Erro ao matar os processos do driver: " + e.toString());
-			}
 	}
 
 	/**

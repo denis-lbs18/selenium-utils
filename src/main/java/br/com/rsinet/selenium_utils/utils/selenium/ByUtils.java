@@ -243,7 +243,7 @@ public abstract class ByUtils {
 	 * Busca elemento considerando o parâmetro IMG SRC
 	 * 
 	 * @param src parâmetro SRC da imagem.
-	 * @return objeto {@link By} encontrado
+	 * @return objeto {@link By} encontrado.
 	 */
 	public static By encontraByImgSrc(String src) {
 		return By.xpath(String.format("//%1$s[@src='%2$s']", ByUtils.IMG, src));
@@ -262,10 +262,10 @@ public abstract class ByUtils {
 
 	/**
 	 * Busca elemento considerando o método @role='gridcell' dentro de uma table,
-	 * buscando pelo índice da linha
+	 * buscando pelo índice da linha.
 	 * 
-	 * @param index índice da linha a ser considerada na table
-	 * @return objeto {@link By} encontrado
+	 * @param index índice da linha a ser considerada na table.
+	 * @return objeto {@link By} encontrado.
 	 */
 	public static By encontraByTableRow(String classe, int index) {
 		return By.xpath(String.format("//%1$s[@class='%2$s']//%3$s[%4$d]", ByUtils.TR, classe, ByUtils.TD, index));
@@ -273,22 +273,45 @@ public abstract class ByUtils {
 
 	/**
 	 * Busca elemento considerando um select, com parâmetro @size='1', buscando pelo
-	 * índice do select
+	 * índice do select.
 	 * 
-	 * @param index índice do select a ser considerado
-	 * @return objeto {@link By} encontrado
+	 * @param index índice do select a ser considerado.
+	 * @return objeto {@link By} encontrado.
 	 */
 	public static By encontraBySelect(int index) {
 		return By.xpath(String.format("(//%1$s[1])[%2$d]", ByUtils.SELECT, index));
 	}
 
 	/**
-	 * Busca elemento considerando uma linha de tabela, retornando uma table row
+	 * Busca elemento considerando uma linha de tabela, retornando uma table row.
 	 * 
-	 * @param idTabela id da tablea a ser considerado
-	 * @return objeto {@link By} encontrado
+	 * @param idTabela id da tablea a ser considerado.
+	 * @return objeto {@link By} encontrado.
 	 */
 	public static By encontraLinhasTabela(String idTabela) {
 		return By.xpath(String.format("id('%1$s')/tbody/tr", idTabela));
+	}
+
+	/**
+	 * Busca elemento considerando o atributo @name.
+	 * 
+	 * @param elemento tag HTML do elemento.
+	 * @param nome     valor do atributo @name a ser considerado.
+	 * @return objeto {@link By} encontrado.
+	 */
+	public static By encontraByName(String elemento, String nome) {
+		return By.xpath(String.format("//%1$s[@name='%2$s']", elemento, nome));
+	}
+
+	/**
+	 * Busca elemento considerando o atributo @name.
+	 * 
+	 * @param elemento tag HTML do elemento.
+	 * @param nome     valor do atributo @name a ser considerado.
+	 * @param index    índice do elemento.
+	 * @return objeto {@link By} encontrado.
+	 */
+	public static By encontraByName(String elemento, String nome, int index) {
+		return By.xpath(String.format("(//%1$s[@name='%2$s'])[%3$d]", elemento, nome, index));
 	}
 }
