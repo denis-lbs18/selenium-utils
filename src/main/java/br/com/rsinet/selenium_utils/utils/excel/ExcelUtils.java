@@ -302,7 +302,11 @@ public class ExcelUtils {
 		try {
 			valorCelula = (int) this.getPlanilha().getRow(linha).getCell(coluna).getNumericCellValue();
 		} catch (Exception ex) {
-			valorCelula = Integer.parseInt(this.getPlanilha().getRow(linha).getCell(coluna).getStringCellValue());
+			try {
+				valorCelula = Integer.parseInt(this.getPlanilha().getRow(linha).getCell(coluna).getStringCellValue());
+			} catch (Exception ex1) {
+				valorCelula = 0;
+			}
 		}
 
 		return valorCelula;

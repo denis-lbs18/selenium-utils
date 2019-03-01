@@ -2,7 +2,6 @@ package br.com.rsinet.selenium_utils.utils.selenium;
 
 import java.io.File;
 import java.io.IOException;
-import java.time.Duration;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +16,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -97,9 +95,9 @@ public class ElementoWebUtils {
 	 * @return WebElement encontrado na página através do By
 	 */
 	public WebElement elementoWebAchaElementoVisivel(By by) {
-		WebElement elemento = new FluentWait<>(this.getDriver())
-				.withTimeout(Duration.ofSeconds(TempoTimeouts.TEMPO_WAIT))
-				.pollingEvery(Duration.ofSeconds(TempoTimeouts.TEMPO_POLLING))
+		WebElement elemento = new WebDriverWait(this.getDriver(), TempoTimeouts.TEMPO_WAIT)
+				.withTimeout(TempoTimeouts.TEMPO_WAIT, TimeUnit.SECONDS)
+				.pollingEvery(TempoTimeouts.TEMPO_POLLING, TimeUnit.SECONDS)
 				.ignoring(StaleElementReferenceException.class)
 				.until(ExpectedConditions.visibilityOfElementLocated(by));
 
@@ -117,9 +115,9 @@ public class ElementoWebUtils {
 	 * @return lista de WebElements encontrados
 	 */
 	public List<WebElement> elementoWebAchaElementosWait(By by) {
-		List<WebElement> listaElementos = new FluentWait<>(this.getDriver())
-				.withTimeout(Duration.ofSeconds(TempoTimeouts.TEMPO_WAIT))
-				.pollingEvery(Duration.ofSeconds(TempoTimeouts.TEMPO_WAIT))
+		List<WebElement> listaElementos = new WebDriverWait(this.getDriver(), TempoTimeouts.TEMPO_WAIT)
+				.withTimeout(TempoTimeouts.TEMPO_WAIT, TimeUnit.SECONDS)
+				.pollingEvery(TempoTimeouts.TEMPO_POLLING, TimeUnit.SECONDS)
 				.ignoring(StaleElementReferenceException.class)
 				.until(ExpectedConditions.presenceOfAllElementsLocatedBy(by));
 
@@ -188,6 +186,13 @@ public class ElementoWebUtils {
 		}
 	}
 
+	/**
+	 * Método que permite selecionar uma opção do combobox pelo texto. Seleciona o
+	 * texto da lista com um clique.
+	 * 
+	 * @param by    o identificador By do elemento a ser selecionado.
+	 * @param texto o texto a ser escolhido dentro do combobox.
+	 */
 	public void elementoWebSelecionaListaPorClique(By by, String texto) {
 		this.elementoWebClica(by);
 		this.sleep(TempoTimeouts.TEMPO_PADRAO_TELA);
@@ -197,13 +202,19 @@ public class ElementoWebUtils {
 		this.elementoWebClica(elementoLista);
 	}
 
+	/**
+	 * Método que permite selecionar uma opção do combobox pelo texto. Seleciona o
+	 * texto da lista com movimentação do teclado através do Keys.
+	 * 
+	 * @param by    objeto {@link By} mapeado.
+	 * @param texto texto a ser escolhido dentro do combobox.
+	 */
 	public void elementoWebSelecionaListaPorKeys(By by, String texto) {
 		this.elementoWebInsereTexto(by, texto);
 		this.sleep(TempoTimeouts.TEMPO_PADRAO_TELA);
 		this.elementoWebInsereTexto(by, Keys.DOWN);
 		this.sleep(TempoTimeouts.TEMPO_PADRAO_TELA);
 		this.elementoWebInsereTexto(by, Keys.ENTER);
-
 	}
 
 	/**
@@ -239,12 +250,23 @@ public class ElementoWebUtils {
 		elemento.click();
 	}
 
+	/**
+	 * Método que efetua um clique em um elemento, através de {@link Actions}.
+	 * 
+	 * @param by
+	 */
 	public void elementoWebClicaActions(By by) {
 		WebElement elementoSVG = this.elementoWebAchaElementoClicavel(by);
 		Actions acaoSVG = new Actions(this.getDriver());
 		acaoSVG.moveToElement(elementoSVG).click().build().perform();
 	}
 
+	/**
+	 * Método que efetua um clique em um elemento, através de
+	 * {@link JavascriptExecutor}.
+	 * 
+	 * @param by objeto {@link By} mapeado.
+	 */
 	public void elementoWebClicaJavaScript(By by) {
 		JavascriptExecutor jsExecutor = (JavascriptExecutor) this.getDriver();
 		jsExecutor.executeScript("var evt = document.createEvent('MouseEvents');"
@@ -258,7 +280,6 @@ public class ElementoWebUtils {
 	 * @param by o identificador By do elemento a ser digitado ESC
 	 */
 	public void pressionaTeclaEsc(By by) {
-
 		this.elementoWebAchaElementoClicavel(by).sendKeys(Keys.ESCAPE);
 	}
 
@@ -436,9 +457,9 @@ public class ElementoWebUtils {
 	}
 
 	/**
-	 * Método que efetua mouseover dentro de um WebElement
+	 * Método que efetua mouseover dentro de um WebElement.
 	 * 
-	 * @param by objeto By mapeado
+	 * @param by objeto {@link By} mapeado.
 	 */
 	public void elementoWebMouseOver(By by) {
 		WebElement elemento = this.elementoWebAchaElementoClicavel(by);
@@ -447,6 +468,11 @@ public class ElementoWebUtils {
 		builder.moveToElement(elemento).perform();
 	}
 
+	/**
+	 * Método que efetua um MouseOver no lado direito do elemento.
+	 * 
+	 * @param by objeto {@link By} mapeado.
+	 */
 	public void elementoWebMouseOverLadoDireito(By by) {
 		WebElement elemento = this.elementoWebAchaElementoClicavel(by);
 		int width = elemento.getSize().width;
@@ -539,8 +565,33 @@ public class ElementoWebUtils {
 		this.elementoWebEnviaArquivoUpload(by, arquivo);
 	}
 
+	/**
+	 * Método que verifica se um objeto está selecionado.
+	 * 
+	 * @param by objeto {@link By} mapeado.
+	 * @return booolean com o retorno do método isSelected().
+	 */
 	public boolean elementoWebEstaSelecionado(By by) {
 		boolean retorno = this.elementoWebAchaElementoVisivel(by).isSelected();
 		return retorno;
+	}
+
+	/**
+	 * Método que tenta efetuar um clique em uma lista de elementos possíveis.
+	 * 
+	 * @param listaElementos {@link List} de objetos {@link By} com os possíveis
+	 *                       elementos a serem clicados.
+	 */
+	public void elementoWebClicaPossiveisElementos(List<By> listaElementos) {
+		for (By elementoBy : listaElementos) {
+			try {
+				this.elementoWebClica(elementoBy);
+				break;
+			} catch (Exception ex) {
+				System.out.println("Elemento da lista não visível ou não clicável.");
+				System.out.println("Mensagem de erro: " + ex.toString());
+			}
+
+		}
 	}
 }

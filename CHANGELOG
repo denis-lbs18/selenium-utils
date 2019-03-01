@@ -1,3 +1,9 @@
+Versão 1.3.0
+- Atualização devido versão do Selenium - Mudança para aguardaVisibilidade versão 3.9.1 do Selenium.
+- Criação de método elementoWebClicaPossiveisElementos(List<By> listaElementos) na classe ElementoWebUtils.
+- Correção de bug na classes ExcelUtils.
+- Atualização nome JavaDoc.
+
 Versão 1.2.3
 - Inclusão do método encontraByName(String elemento, String nome) e encontraByName(String elemento, String nome, int index) na classe ByUtils.
 - Remoção de método não construído na classe ElementoWebUtils
