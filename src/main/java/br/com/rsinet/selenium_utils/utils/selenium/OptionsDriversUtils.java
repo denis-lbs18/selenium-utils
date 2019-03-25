@@ -7,6 +7,9 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.ie.InternetExplorerOptions;
+import org.openqa.selenium.remote.CapabilityType;
 
 public class OptionsDriversUtils {
 	public ChromeOptions getChromeOptions() {
@@ -37,6 +40,19 @@ public class OptionsDriversUtils {
 		profile.setPreference("network.proxy.type", 0);
 
 		options.setCapability(FirefoxDriver.PROFILE, profile);
+		return options;
+	}
+
+	public InternetExplorerOptions getInternetExplorerOptions() {
+		InternetExplorerOptions options = new InternetExplorerOptions();
+		options.setCapability(CapabilityType.BROWSER_NAME, "internet explorer");
+		options.setCapability(InternetExplorerDriver.IE_ENSURE_CLEAN_SESSION, true);
+		options.setCapability(CapabilityType.ForSeleniumServer.ENSURING_CLEAN_SESSION, true);
+		options.setCapability("nativeEvents", false);
+		options.setCapability("disabled-popup-blocking", true);
+		options.setCapability(InternetExplorerDriver.IGNORE_ZOOM_SETTING, true);
+		options.setCapability("acceptSslCerts", true);
+
 		return options;
 	}
 }

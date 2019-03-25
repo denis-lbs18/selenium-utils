@@ -80,8 +80,7 @@ public abstract class WebDriverUtils {
 	 * IEDriverServer pode ser baixado no site http://docs.seleniumhq.org/download/
 	 */
 	public static InternetExplorerDriver instanciaInternetExplorerDriver() {
-		final InternetExplorerOptions options = new InternetExplorerOptions();
-		options.setCapability("acceptSslCerts", true);
+		InternetExplorerOptions options = new OptionsDriversUtils().getInternetExplorerOptions();
 		return new InternetExplorerDriver(options);
 	}
 
