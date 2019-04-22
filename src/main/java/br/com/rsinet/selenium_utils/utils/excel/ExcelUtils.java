@@ -56,6 +56,20 @@ public class ExcelUtils {
 		this.abrePlanilha();
 	}
 
+	public ExcelUtils(String fileName, boolean deletaArquivo) {
+		if (deletaArquivo)
+			this.deletaArquivo(fileName);
+		this.setFileName(fileName);
+		this.path = this.fileName; // this.getPastaDefault() +
+		this.abrePlanilha();
+	}
+
+	private void deletaArquivo(String fileName) {
+		File arquivo = new File(fileName);
+		if (arquivo.exists())
+			arquivo.delete();
+	}
+
 	/**
 	 * Método que retorna o objeto manipulador de arquivos do excel
 	 * 
@@ -171,7 +185,7 @@ public class ExcelUtils {
 	 */
 	public void salvaPlanilha() {
 		try {
-			this.arquivoSaida = new FileOutputStream(this.path);
+			this.arquivoSaida = new FileOutputStream(new File(this.fileName));
 
 			this.getWorkBook().write(this.arquivoSaida);
 
@@ -492,7 +506,7 @@ public class ExcelUtils {
 	public int achaLinhaPorTexto(String textoCelula) {
 		for (Row linha : this.getWorkBook().getSheetAt(0)) {
 			for (Cell celula : linha) {
-				if (celula.getCellTypeEnum() == CellType.STRING) {
+				if (celula.getCellType().equals(CellType.STRING)) {
 					if (celula.getRichStringCellValue().getString().trim().equals(textoCelula)) {
 						return linha.getRowNum();
 					}
@@ -505,7 +519,7 @@ public class ExcelUtils {
 	public int achaLinhaPorTextoR(String textoCelula) {
 		for (Row linha : this.getWorkBook().getSheetAt(0)) {
 			for (Cell celula : linha) {
-				if (celula.getCellTypeEnum() == CellType.STRING) {
+				if (celula.getCellType().equals(CellType.STRING)) {
 					if (celula.getRichStringCellValue().getString().trim().equals(textoCelula)) {
 						return linha.getRowNum();
 					}

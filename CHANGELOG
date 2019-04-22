@@ -1,3 +1,6 @@
+Versão 1.5.1
+- Inclusão do método deletaArquivo na classe ExcelUtils.
+
 Versão 1.5.0
 - Inclusão da classe RobotUtils, que permite aguardaVisibilidade inserção devido dados de login em janelas JavaScript devido um browser, não controladas pelo Selenium.
 
