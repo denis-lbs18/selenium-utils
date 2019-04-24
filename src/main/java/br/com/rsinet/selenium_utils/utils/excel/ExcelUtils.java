@@ -506,7 +506,7 @@ public class ExcelUtils {
 	public int achaLinhaPorTexto(String textoCelula) {
 		for (Row linha : this.getWorkBook().getSheetAt(0)) {
 			for (Cell celula : linha) {
-				if (celula.getCellType().equals(CellType.STRING)) {
+				if (celula.getCellTypeEnum().equals(CellType.STRING)) {
 					if (celula.getRichStringCellValue().getString().trim().equals(textoCelula)) {
 						return linha.getRowNum();
 					}
@@ -519,7 +519,7 @@ public class ExcelUtils {
 	public int achaLinhaPorTextoR(String textoCelula) {
 		for (Row linha : this.getWorkBook().getSheetAt(0)) {
 			for (Cell celula : linha) {
-				if (celula.getCellType().equals(CellType.STRING)) {
+				if (celula.getCellTypeEnum().equals(CellType.STRING)) {
 					if (celula.getRichStringCellValue().getString().trim().equals(textoCelula)) {
 						return linha.getRowNum();
 					}

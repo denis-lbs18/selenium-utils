@@ -1,3 +1,6 @@
+Versão 1.5.2
+- Utilização dados versão 3.17 do Apache POI.
+
 Versão 1.5.1
 - Inclusão do método deletaArquivo na classe ExcelUtils.
 
