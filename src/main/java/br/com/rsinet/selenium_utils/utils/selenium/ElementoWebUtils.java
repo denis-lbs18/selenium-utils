@@ -143,6 +143,7 @@ public class ElementoWebUtils {
 	 * @param by
 	 * @param option
 	 */
+	@Deprecated
 	public void elementoWebSelecionaRadio(By by, int option) {
 		List<WebElement> radios = driver.findElements(by);
 		if (option > 0 && option <= radios.size()) {
@@ -175,12 +176,12 @@ public class ElementoWebUtils {
 	 * texto da lista e aplica o enter.
 	 * 
 	 * @param by    o identificador By do elemento a ser selecionado
-	 * @param value o texto a ser escolhido dentro do combobox
+	 * @param texto o texto a ser escolhido dentro do combobox
 	 */
-	public void elementoWebSelecionaListaSelect(By by, String value) {
+	public void elementoWebSelecionaListaSelect(By by, String texto) {
 		try {
 			Select listaSelect = new Select(this.elementoWebAchaElementoClicavel(by));
-			listaSelect.selectByVisibleText(value);
+			listaSelect.selectByVisibleText(texto);
 		} catch (Exception ex) {
 			System.out.println("Erro ao selecionar opção por texto.");
 		}
@@ -222,12 +223,12 @@ public class ElementoWebUtils {
 	 * parâmetros o By do elemento e o texto a ser inserido.
 	 * 
 	 * @param by    o identificador By do elemento a ser selecionado
-	 * @param value o texto a ser inserido dentro do campo de texto
+	 * @param texto o texto a ser inserido dentro do campo de texto
 	 */
-	public void elementoWebInsereTexto(By by, String value) {
+	public void elementoWebInsereTexto(By by, String texto) {
 		this.sleep(TempoTimeouts.TEMPO_PADRAO_TELA);
 		this.elementoWebAguardaVisibilidade(by);
-		this.elementoWebAchaElementoClicavel(by).sendKeys(value);
+		this.elementoWebAchaElementoClicavel(by).sendKeys(texto);
 	}
 
 	/**

@@ -1,3 +1,7 @@
+Versão 1.5.3
+- Inclusão do método encontraByFormControlName na classe ByUtils.
+- Depreciação do método elementoWebSelecionaRadio na classe ElementoWebUtils.
+
 Versão 1.5.2
 - Utilização dados versão 3.17 do Apache POI.
 

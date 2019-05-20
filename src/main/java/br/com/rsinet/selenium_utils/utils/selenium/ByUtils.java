@@ -314,4 +314,27 @@ public abstract class ByUtils {
 	public static By encontraByName(String elemento, String nome, int index) {
 		return By.xpath(String.format("(//%1$s[@name='%2$s'])[%3$d]", elemento, nome, index));
 	}
+
+	/**
+	 * Busca elemento considerando o atributo @formcontrolname.
+	 * 
+	 * @param elemento tag HTML do elemento.
+	 * @param nome     valor do atributo @formcontrolname a ser considerado.
+	 * @return objeto {@link By} encontrado.
+	 */
+	public static By encontraByFormControlName(String elemento, String nome) {
+		return By.xpath(String.format("//%1$s[@formcontrolname='%2$s']", elemento, nome));
+	}
+
+	/**
+	 * Busca elemento considerando o atributo @formcontrolname.
+	 * 
+	 * @param elemento tag HTML do elemento.
+	 * @param nome     valor do atributo @formcontrolname a ser considerado.
+	 * @param index    índice do elemento.
+	 * @return objeto {@link By} encontrado.
+	 */
+	public static By encontraByFormControlName(String elemento, String nome, int index) {
+		return By.xpath(String.format("(//%1$s[@formcontrolname='%2$s'])[%3$d]", elemento, nome, index));
+	}
 }
