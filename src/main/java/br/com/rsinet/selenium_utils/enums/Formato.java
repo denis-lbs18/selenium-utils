@@ -25,6 +25,12 @@ public enum Formato {
 			return "yyyy-MM";
 		}
 	},
+	MONTH_YEAR {
+		@Override
+		public String toString() {
+			return "MM/yyyy";
+		}
+	},
 	/**
 	 * Formato dia (dd).
 	 */

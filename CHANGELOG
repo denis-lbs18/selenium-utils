@@ -1,3 +1,6 @@
+Versão 1.5.4
+- Inclusão de formato na enum Formato.
+
 Versão 1.5.3
 - Inclusão do método encontraByFormControlName na classe ByUtils.
 - Depreciação do método elementoWebSelecionaRadio na classe ElementoWebUtils.
