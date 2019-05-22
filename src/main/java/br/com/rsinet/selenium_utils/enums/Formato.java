@@ -25,6 +25,9 @@ public enum Formato {
 			return "yyyy-MM";
 		}
 	},
+	/**
+	 * Formato mês-ano (MM/yyyy).
+	 */
 	MONTH_YEAR {
 		@Override
 		public String toString() {
