@@ -69,8 +69,13 @@ public abstract class NumberUtils {
 			try {
 				retorno = Float.parseFloat(value);
 			} catch (NumberFormatException ex) {
-				System.out.println("Erro na conversão de String para float");
-				System.out.println("Erro: " + ex.toString());
+				try {
+					value = transformaVirgulaEmPonto(value);
+					retorno = Float.parseFloat(value);
+				} catch (NumberFormatException nbEx) {
+					System.out.println("Erro na conversão de String para float");
+					System.out.println("Erro: " + ex.toString());
+				}
 			}
 		}
 

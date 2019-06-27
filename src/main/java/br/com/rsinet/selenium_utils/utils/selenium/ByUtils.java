@@ -21,6 +21,16 @@ public abstract class ByUtils {
 	public static final String HTML_STRING_TEXT = "html-string-text";
 
 	/**
+	 * Busca elemento {@link By} utilizando o parâmetro ID.
+	 * 
+	 * @param id nome do @id do elemento.
+	 * @return objeto {@link By} encontrado.
+	 */
+	public static By encontraByID(String id) {
+		return By.id(id);
+	}
+
+	/**
 	 * Busca elemento {@link By} utilizando o parâmetro ID
 	 * 
 	 * @param elemento tag HTML do elemento.

@@ -424,7 +424,10 @@ public class ExcelUtils {
 	 * @param value  {@link LocalDate} com a data a ser inserido na célula.
 	 */
 	public void setTextoCelula(int linha, int coluna, LocalDate localDate) {
-		this.setTextoCelula(linha, coluna, localDate.toString());
+		if (localDate != null)
+			this.setTextoCelula(linha, coluna, localDate.toString());
+		else
+			this.setTextoCelula(linha, coluna, "");
 	}
 
 	/**

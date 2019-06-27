@@ -188,6 +188,28 @@ public class ElementoWebUtils {
 	}
 
 	/**
+	 * Método que permite selecionar uma opção do combobox pelo texto, usando o
+	 * método driver.findElement().
+	 * 
+	 * @param by    o identificador By do elemento a ser selecionado
+	 * @param texto o texto a ser escolhido dentro do combobox
+	 */
+	public void elementoWebSelecionaLista(By by, String texto) {
+		new Select(this.getDriver().findElement(by)).selectByVisibleText(texto);
+	}
+
+	/**
+	 * Método que permite selecionar uma opção do combobox pelo index, usando o
+	 * método driver.findElement().
+	 * 
+	 * @param by    o identificador By do elemento a ser selecionado
+	 * @param index o índice a ser escolhido dentro do combobox
+	 */
+	public void elementoWebSelecionaLista(By by, int index) {
+		new Select(this.getDriver().findElement(by)).selectByIndex(index);
+	}
+
+	/**
 	 * Método que permite selecionar uma opção do combobox pelo texto. Seleciona o
 	 * texto da lista com um clique.
 	 * 
@@ -532,7 +554,7 @@ public class ElementoWebUtils {
 	 * @param by objeto {@link By} mapeado.
 	 */
 	public void elementoWebMoveParaOElemento(By by) {
-		WebElement elemento = this.elementoWebAchaElementoClicavel(by);
+		WebElement elemento = this.elementoWebAchaElementoVisivel(by);
 		((JavascriptExecutor) this.getDriver()).executeScript("arguments[0].scrollIntoView();", elemento);
 	}
 
