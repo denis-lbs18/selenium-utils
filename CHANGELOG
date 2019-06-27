@@ -1,3 +1,9 @@
+Versão 1.5.5
+- Correção de Bugs e inclusão de método setTextoCelula(LocalDate localDate).
+- Correção de conversão de String para Float na classe NumberUtils.
+- Inclusão de método By.id na classe ByUtils.
+- Inclusão de método elementoWebSelecionaListaSelect na classe ElementoWebUtils.
+
 Versão 1.5.4
 - Inclusão de formato na enum Formato.
 
