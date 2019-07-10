@@ -164,7 +164,7 @@ public class ElementoWebUtils {
 	 */
 	public void elementoWebSelecionaListaSelect(By by, int index) {
 		try {
-			Select listaSelect = new Select(this.elementoWebAchaElementoClicavel(by));
+			Select listaSelect = new Select(this.elementoWebAchaElementoVisivel(by));
 			listaSelect.selectByIndex(index);
 		} catch (Exception ex) {
 			System.out.println("Erro ao selecionar opção por index.");
@@ -180,7 +180,7 @@ public class ElementoWebUtils {
 	 */
 	public void elementoWebSelecionaListaSelect(By by, String texto) {
 		try {
-			Select listaSelect = new Select(this.elementoWebAchaElementoClicavel(by));
+			Select listaSelect = new Select(this.elementoWebAchaElementoVisivel(by));
 			listaSelect.selectByVisibleText(texto);
 		} catch (Exception ex) {
 			System.out.println("Erro ao selecionar opção por texto.");
@@ -250,7 +250,7 @@ public class ElementoWebUtils {
 	public void elementoWebInsereTexto(By by, String texto) {
 		this.sleep(TempoTimeouts.TEMPO_PADRAO_TELA);
 		this.elementoWebAguardaVisibilidade(by);
-		this.elementoWebAchaElementoClicavel(by).sendKeys(texto);
+		this.elementoWebAchaElementoVisivel(by).sendKeys(texto);
 	}
 
 	/**
@@ -260,7 +260,7 @@ public class ElementoWebUtils {
 	 * @param key a key (tecla) a ser inserida no campo de texto
 	 */
 	public void elementoWebInsereTexto(By by, Keys key) {
-		this.elementoWebAchaElementoClicavel(by).sendKeys(key);
+		this.elementoWebAchaElementoVisivel(by).sendKeys(key);
 	}
 
 	/**
@@ -269,7 +269,7 @@ public class ElementoWebUtils {
 	 * @param by o identificador By do elemento a ser selecionado
 	 */
 	public void elementoWebClica(By by) {
-		WebElement elemento = this.elementoWebAchaElementoClicavel(by);
+		WebElement elemento = this.elementoWebAchaElementoVisivel(by);
 		elemento.click();
 	}
 
@@ -279,7 +279,7 @@ public class ElementoWebUtils {
 	 * @param by
 	 */
 	public void elementoWebClicaActions(By by) {
-		WebElement elementoSVG = this.elementoWebAchaElementoClicavel(by);
+		WebElement elementoSVG = this.elementoWebAchaElementoVisivel(by);
 		Actions acaoSVG = new Actions(this.getDriver());
 		acaoSVG.moveToElement(elementoSVG).click().build().perform();
 	}
@@ -294,7 +294,7 @@ public class ElementoWebUtils {
 		JavascriptExecutor jsExecutor = (JavascriptExecutor) this.getDriver();
 		jsExecutor.executeScript("var evt = document.createEvent('MouseEvents');"
 				+ "evt.initMouseEvent('click',true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0,null);"
-				+ "arguments[0].dispatchEvent(evt);", this.elementoWebAchaElementoClicavel(by));
+				+ "arguments[0].dispatchEvent(evt);", this.elementoWebAchaElementoVisivel(by));
 	}
 
 	/**
@@ -303,7 +303,7 @@ public class ElementoWebUtils {
 	 * @param by o identificador By do elemento a ser digitado ESC
 	 */
 	public void pressionaTeclaEsc(By by) {
-		this.elementoWebAchaElementoClicavel(by).sendKeys(Keys.ESCAPE);
+		this.elementoWebAchaElementoVisivel(by).sendKeys(Keys.ESCAPE);
 	}
 
 	/**
@@ -327,7 +327,7 @@ public class ElementoWebUtils {
 	public void elementoWebLimpa(By by) {
 		this.sleep(TempoTimeouts.TEMPO_PADRAO_TELA);
 //		this.elementoWebAchaElementoClicavel(by).clear();
-		this.elementoWebAchaElementoClicavel(by).sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
+		this.elementoWebAchaElementoVisivel(by).sendKeys(Keys.chord(Keys.CONTROL, "a", Keys.DELETE));
 	}
 
 	/**
@@ -426,7 +426,7 @@ public class ElementoWebUtils {
 	 *         By
 	 */
 	public String elementoWebPegaTexto(By by) {
-		return this.elementoWebAchaElementoClicavel(by).getText();
+		return this.elementoWebAchaElementoVisivel(by).getText();
 	}
 
 	/**
@@ -436,7 +436,7 @@ public class ElementoWebUtils {
 	 * @return int do texto contido no WebElement encontrado através do parâmetro By
 	 */
 	public int elementoWebPegaTextoInt(By by) {
-		String texto = this.elementoWebAchaElementoClicavel(by).getText();
+		String texto = this.elementoWebAchaElementoVisivel(by).getText();
 		int numero = NumberUtils.converteStringParaInteger(texto);
 
 		return numero;
@@ -451,7 +451,7 @@ public class ElementoWebUtils {
 	 * @return boolean true caso objeto esteja visível
 	 */
 	public boolean procuraRegiaoValidacaoFinal(By by) {
-		return this.elementoWebAchaElementoClicavel(by).isDisplayed();
+		return this.elementoWebAchaElementoVisivel(by).isDisplayed();
 	}
 
 	/**
@@ -485,7 +485,7 @@ public class ElementoWebUtils {
 	 * @param by objeto {@link By} mapeado.
 	 */
 	public void elementoWebMouseOver(By by) {
-		WebElement elemento = this.elementoWebAchaElementoClicavel(by);
+		WebElement elemento = this.elementoWebAchaElementoVisivel(by);
 
 		Actions builder = new Actions(this.getDriver());
 		builder.moveToElement(elemento).perform();
@@ -497,7 +497,7 @@ public class ElementoWebUtils {
 	 * @param by objeto {@link By} mapeado.
 	 */
 	public void elementoWebMouseOverLadoDireito(By by) {
-		WebElement elemento = this.elementoWebAchaElementoClicavel(by);
+		WebElement elemento = this.elementoWebAchaElementoVisivel(by);
 		int width = elemento.getSize().width;
 
 		Actions builder = new Actions(this.getDriver());
@@ -513,7 +513,7 @@ public class ElementoWebUtils {
 	public void elementoWebSelecionaDatePicker(By by, LocalDate date) {
 		String dataBusca = LocalDateTimeUtils.formataData(Formato.DAY, date);
 
-		WebElement dateWidget = this.elementoWebAchaElementoClicavel(by);
+		WebElement dateWidget = this.elementoWebAchaElementoVisivel(by);
 		List<WebElement> colunas = dateWidget.findElements(By.tagName("td"));
 
 		for (WebElement celula : colunas) {
