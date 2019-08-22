@@ -53,7 +53,7 @@ Primeiramente, é necessário instalar o projeto selenium-utils no repositório 
 Após isso, basta importar o projeto selenium-utils em seu pom.xml, inserindo a seguinte dependência:
 
 ```sh
-    <dependency>
+	<dependency>
 		<groupId>br.com.denisluna</groupId>
 		<artifactId>selenium-utils</artifactId>
 	</dependency>
