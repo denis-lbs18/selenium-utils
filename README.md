@@ -3,18 +3,6 @@
 ## Sobre
 O repositório de bibliotecas utilitárias para automação em Selenium utiliza tecnologia Java para automação (Maven, Selenium).
 
-## Licença
-
-> Copyright © 2019 Santander. All Rights Reserved.
->
-> Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.
-> You may obtain a copy of the License at
->
->    http://www.apache.org/licenses/LICENSE-2.0
->
->Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,
->WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
-
 
 ## Configuração do ambiente de desenvolvimento
 
@@ -30,7 +18,7 @@ Pré-requisitos
 Abra o prompt gitbash, entre na estrutura de sua workspace, apague as pastas existentes e digite o comando abaixo:
 
 ```sh
-	git clone git@gitlab.produbanbr.corp:automacao/selenium-utils.git
+	git clone git@github.com:denis-lbs18/selenium-utils.git
 ```
 
 ## Configuração do WebDriver
@@ -56,11 +44,17 @@ Drivers recomendados:
 
 ## Configuração do projeto
 
-Basta importar o projeto selenium-utils em seu pom.xml, inserindo a seguinte dependência:
+Primeiramente, é necessário instalar o projeto selenium-utils no repositório local do Maven com o comando:
+
+```sh
+	mvn clean install
+```
+
+Após isso, basta importar o projeto selenium-utils em seu pom.xml, inserindo a seguinte dependência:
 
 ```sh
     <dependency>
-		<groupId>br.com.rsinet</groupId>
+		<groupId>br.com.denisluna</groupId>
 		<artifactId>selenium-utils</artifactId>
 	</dependency>
 ```
@@ -74,4 +68,4 @@ Tais alterações podem quebrar o projeto e impactar no trabalho dos demais dese
 
 ## Dúvidas e Suporte
 
-No caso de dúvidas e ou suporte, além de sugestões, entre em contato com a equipe de automação.
+No caso de dúvidas e ou suporte, além de sugestões, entre em contato com o autor do projeto.
