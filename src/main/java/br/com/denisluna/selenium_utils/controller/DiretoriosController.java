@@ -1,9 +1,9 @@
-package br.com.rsinet.selenium_utils.controller;
+package br.com.denisluna.selenium_utils.controller;
 
 import java.io.File;
 import java.io.IOException;
 
-import br.com.rsinet.selenium_utils.utils.LocalDateTimeUtils;
+import br.com.denisluna.selenium_utils.utils.LocalDateTimeUtils;
 
 /**
  * Classe que controla a criação de diretórios de evidência.

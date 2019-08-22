@@ -1,4 +1,4 @@
-package br.com.rsinet.selenium_utils.utils.selenium;
+package br.com.denisluna.selenium_utils.utils.selenium;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,10 +19,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import br.com.rsinet.selenium_utils.enums.Formato;
-import br.com.rsinet.selenium_utils.utils.LocalDateTimeUtils;
-import br.com.rsinet.selenium_utils.utils.NumberUtils;
-import br.com.rsinet.selenium_utils.utils.constants.TempoTimeouts;
+import br.com.denisluna.selenium_utils.enums.Formato;
+import br.com.denisluna.selenium_utils.utils.LocalDateTimeUtils;
+import br.com.denisluna.selenium_utils.utils.NumberUtils;
+import br.com.denisluna.selenium_utils.utils.constants.TempoTimeouts;
 
 /**
  * Classe que trabalha com wait do WebElement, permitindo que o objeto esteja

@@ -1,4 +1,4 @@
-package br.com.rsinet.selenium_utils.modelos;
+package br.com.denisluna.selenium_utils.modelos;
 
 /**
  * Classe pai para todos os tipos de testes automatizados.

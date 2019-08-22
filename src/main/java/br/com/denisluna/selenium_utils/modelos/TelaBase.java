@@ -1,4 +1,4 @@
-package br.com.rsinet.selenium_utils.modelos;
+package br.com.denisluna.selenium_utils.modelos;
 
 import java.util.concurrent.TimeUnit;
 
@@ -9,7 +9,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import br.com.rsinet.selenium_utils.utils.selenium.ElementoWebUtils;
+import br.com.denisluna.selenium_utils.utils.selenium.ElementoWebUtils;
 
 /**
  * PageObject base do projeto. Todo PageObject deve herdar desta classe.

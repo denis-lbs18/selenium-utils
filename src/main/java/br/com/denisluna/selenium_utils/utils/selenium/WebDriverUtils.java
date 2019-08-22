@@ -1,4 +1,4 @@
-package br.com.rsinet.selenium_utils.utils.selenium;
+package br.com.denisluna.selenium_utils.utils.selenium;
 
 import java.io.File;
 

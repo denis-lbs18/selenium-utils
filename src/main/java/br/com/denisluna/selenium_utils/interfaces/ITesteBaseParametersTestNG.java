@@ -1,18 +1,18 @@
-package br.com.rsinet.selenium_utils.interfaces;
+package br.com.denisluna.selenium_utils.interfaces;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
-public interface ITesteBaseTestNG {
+public interface ITesteBaseParametersTestNG {
 
 	/**
 	 * Método que executa a inicialização do teste baseado em navegação
-	 * {@link WebDriver}.
+	 * {@link WebDriver}, recebendo uma {@link String} como parâmetro.
 	 */
 	@BeforeClass
-	void start();
+	void start(String parametro);
 
 	/**
 	 * Método que executa a finalizaçao do teste baseado em navegação

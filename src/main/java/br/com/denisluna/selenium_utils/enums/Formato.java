@@ -1,4 +1,4 @@
-package br.com.rsinet.selenium_utils.enums;
+package br.com.denisluna.selenium_utils.enums;
 
 /**
  * {@link Enum} que padroniza os formatos de data/hora.

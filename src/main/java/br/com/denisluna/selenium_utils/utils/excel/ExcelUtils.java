@@ -1,4 +1,4 @@
-package br.com.rsinet.selenium_utils.utils.excel;
+package br.com.denisluna.selenium_utils.utils.excel;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -20,8 +20,8 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
-import br.com.rsinet.selenium_utils.controller.DiretoriosController;
-import br.com.rsinet.selenium_utils.utils.NumberUtils;
+import br.com.denisluna.selenium_utils.controller.DiretoriosController;
+import br.com.denisluna.selenium_utils.utils.NumberUtils;
 
 /**
  * Clase que encapsula as operações com Excel

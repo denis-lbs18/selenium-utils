@@ -1,4 +1,4 @@
-package br.com.rsinet.selenium_utils.modelos;
+package br.com.denisluna.selenium_utils.modelos;
 
 /**
  * Classe modelo de acesso, com dados de Login com usuário e senha.

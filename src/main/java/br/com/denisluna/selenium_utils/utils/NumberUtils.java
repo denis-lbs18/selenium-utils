@@ -1,4 +1,4 @@
-package br.com.rsinet.selenium_utils.utils;
+package br.com.denisluna.selenium_utils.utils;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;

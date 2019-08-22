@@ -1,4 +1,4 @@
-package br.com.rsinet.selenium_utils.utils;
+package br.com.denisluna.selenium_utils.utils;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -8,7 +8,7 @@ import java.time.temporal.ChronoUnit;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
-import br.com.rsinet.selenium_utils.enums.Formato;
+import br.com.denisluna.selenium_utils.enums.Formato;
 
 /**
  * Classe que permite obter datas formatadas em strings, para utilização nos

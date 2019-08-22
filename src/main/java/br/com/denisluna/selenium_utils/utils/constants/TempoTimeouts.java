@@ -1,4 +1,4 @@
-package br.com.rsinet.selenium_utils.utils.constants;
+package br.com.denisluna.selenium_utils.utils.constants;
 
 /**
  * Classe com as constantes utilizadas como parâmetro de tempo

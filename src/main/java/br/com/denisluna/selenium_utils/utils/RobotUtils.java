@@ -1,4 +1,4 @@
-package br.com.rsinet.selenium_utils.utils;
+package br.com.denisluna.selenium_utils.utils;
 
 import java.awt.AWTException;
 import java.awt.Robot;
@@ -6,8 +6,8 @@ import java.awt.Toolkit;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 
-import br.com.rsinet.selenium_utils.modelos.Usuario;
-import br.com.rsinet.selenium_utils.utils.constants.TempoTimeouts;
+import br.com.denisluna.selenium_utils.modelos.Usuario;
+import br.com.denisluna.selenium_utils.utils.constants.TempoTimeouts;
 
 public class RobotUtils {
 	/**
