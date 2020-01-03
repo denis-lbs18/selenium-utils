@@ -319,4 +319,10 @@ public abstract class LocalDateTimeUtils {
 
 		return retorno;
 	}
+
+	public static String formataHora(Formato formato, LocalTime hora) {
+		String retorno = hora.format(DateTimeFormatter.ofPattern(formato.toString()));
+
+		return retorno;
+	}
 }

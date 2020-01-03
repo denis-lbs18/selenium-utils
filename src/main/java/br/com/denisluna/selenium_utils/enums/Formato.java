@@ -96,5 +96,11 @@ public enum Formato {
 		public String toString() {
 			return "dd/MM/yyyy HH:mm:ss";
 		}
+	},
+	HM {
+		@Override
+		public String toString() {
+			return "HH:mm";
+		}
 	};
 }
