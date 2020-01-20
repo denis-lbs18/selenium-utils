@@ -28,6 +28,7 @@ public class OptionsDriversUtils {
 		Map<String, Object> prefs = new HashMap<String, Object>();
 		prefs.put("profile.default_content_settings.geolocation", 2);
 		options.setExperimentalOption("prefs", prefs);
+		options.setExperimentalOption("excludeSwitches", new String[] { "enable-automation" });
 		return options;
 	}
 

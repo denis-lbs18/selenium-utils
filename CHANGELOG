@@ -1,3 +1,6 @@
+Versão 1.5.6
+- Atualização de ChromeOptions: remove barra de teste automatizado em versões atuais do Chrome.
+
 Versão 1.5.5
 - Correção de Bugs e inclusão de método setTextoCelula(LocalDate localDate).
 - Correção de conversão de String para Float na classe NumberUtils.
